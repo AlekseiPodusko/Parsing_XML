@@ -1,0 +1,59 @@
+
+<movies>
+    <movie>
+      <title>Star Wars: Episode IV - A New Hope</title>
+      <genre>Science Fiction</genre>
+      <release_date>1977</release_date>
+      <director>George Lucas</director>
+      <cast>
+        <actor>Mark Hamill</actor>
+        <actor>Harrison Ford</actor>
+        <actor>Carrie Fisher</actor>
+      </cast>
+    </movie>
+    <movie>
+      <title>The Green Mile</title>
+      <genre>Drama</genre>
+      <release_date>1999</release_date>
+      <director>Frank Darabont</director>
+      <cast>
+        <actor>Tom Hanks</actor>
+        <actor>David Morse</actor>
+        <actor>Bonnie Hunt</actor>
+        <actor>Michael Clarke Duncan</actor>
+      </cast>
+    </movie>
+    <movie>
+      <title>Interstellar</title>
+      <genre>Science Fiction</genre>
+      <release_date>2014</release_date>
+      <director>Christopher Nolan</director>
+      <cast>
+        <actor>Matthew McConaughey</actor>
+        <actor>Anne Hathaway</actor>
+        <actor>Jessica Chastain</actor>
+      </cast>
+    </movie>
+    <movie>
+      <title>Terminator 2: Judgment Day</title>
+      <genre>Action</genre>
+      <release_date>1991</release_date>
+      <director>James Cameron</director>
+      <cast>
+        <actor>Arnold Schwarzenegger</actor>
+        <actor>Linda Hamilton</actor>
+        <actor>Edward Furlong</actor>
+      </cast>
+    </movie>
+    <movie>
+      <title>Back to the Future</title>
+      <genre>Science Fiction</genre>
+      <release_date>1985</release_date>
+      <director>Robert Zemeckis</director>
+      <cast>
+        <actor>Michael J. Fox</actor>
+        <actor>Christopher Lloyd</actor>
+        <actor>Lea Thompson</actor>
+      </cast>
+    </movie>
+  </movies>
