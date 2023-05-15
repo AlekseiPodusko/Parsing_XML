@@ -23,7 +23,7 @@ public class News {
         Document doc = builder.parse("news.xml");
         XPathFactory xpathfactory = XPathFactory.newInstance();
         XPath xpath = xpathfactory.newXPath();
-        XPathExpression expr = xpath.compile("//news/title/text()");
+        XPathExpression expr = xpath.compile("//news/channel/text()");
         Object result = expr.evaluate(doc, XPathConstants.NODESET);
         NodeList nodes = (NodeList) result;
 
