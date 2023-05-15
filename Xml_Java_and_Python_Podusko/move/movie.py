@@ -1,17 +1,12 @@
-from bs4 import BeautifulSoup as Soup
+import xml.etree.ElementTree as ET
 
-if __name__ == '__main__':
-    with open(r'movie.xml', encoding='utf-8') as xml_file:
-        soup = Soup(xml_file.read(), 'xml') 
-    movies = soup.find_all('movie')  
-    for movie in movies:
-        title = movie.find('title').text.strip()
-        genre = movie.find('genre').text.strip()
-        director = movie.find('director').text.strip()
-        actor=movie.find('actor').text.strip()
+tree = ET.parse('movie.xml')
+root = tree.getroot()
 
-        print(f"Title: {title}")
-        print(f"Genre: {genre}")
-        print(f"Director: {director}")
-        print(f"Actor: {actor}")
-        print("") 
+for pizza in root.findall('movie'):
+    title = movie.find("title").text
+    print(title)
+    for i in pizza.find("ingredients"):
+        print(i.get("title"), i.get("amount"))
+    for s in pizza.find("steps"):
+        print(s.text)
