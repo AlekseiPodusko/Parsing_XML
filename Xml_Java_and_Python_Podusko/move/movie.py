@@ -5,10 +5,10 @@ root = tree.getroot()
 
 for movie in movies:
         title = movie['title']
-        year = movie['year']
+        release_date = movie['release_date']
         director = movie['director']
 
         print(f"Title: {title}")
-        print(f"Year: {year}")
+        print(f"Release_date: {release_date}")
         print(f"Director: {director}")
-        print()  # Пустая строка для отделения вывода информации о каждом фильме
+        print()  
