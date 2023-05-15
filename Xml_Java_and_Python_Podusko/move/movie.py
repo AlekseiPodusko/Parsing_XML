@@ -12,5 +12,5 @@ for movie in movies:
                 st.text(s.text)
         for c in movie.find("director"):
                 st.text(s.text)
-        for i in movie.find("cast"):
+        for v in movie.find("cast"):
                 st.text(i.get("title")+"->"+i.get("actor"))
