@@ -26,7 +26,7 @@ public class PizzaXMLParser {
         Document doc = builder.parse("pizza.xml");
         XPathFactory xpathfactory = XPathFactory.newInstance();
         XPath xpath = xpathfactory.newXPath();
-        XPathExpression expr = xpath.compile("//pizza/title/text()");
+        XPathExpression expr = xpath.compile("//news/title/text()");
         Object result = expr.evaluate(doc, XPathConstants.NODESET);
         NodeList nodes = (NodeList) result;
 
