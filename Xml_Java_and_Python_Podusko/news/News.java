@@ -1,55 +1,34 @@
-import org.w3c.dom.*;
+import java.io.IOException;
+import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.*;
-import java.io.*;
-
 public class News {
+    public static void main(String[] args)
+            throws XPathExpressionException, ParserConfigurationException, SAXException, IOException {
 
-    public static void main(String[] args) {
-        try {
-           
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();            
-            Document doc = builder.parse(new File("news.xml"));
-            
-            NodeList itemList = doc.getElementsByTagName("item");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true); 
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse("news.xml");
+        XPathFactory xpathfactory = XPathFactory.newInstance();
+        XPath xpath = xpathfactory.newXPath();
+        XPathExpression expr = xpath.compile("//news/title/text()");
+        Object result = expr.evaluate(doc, XPathConstants.NODESET);
+        NodeList nodes = (NodeList) result;
 
-            FileWriter htmlWriter = new FileWriter("newsparsresult.html");
- 
-            htmlWriter.write("<html><body><h1>Результаты парсинга:</h1>");
-
-            for (int i = 0; i < itemList.getLength(); i++) {
-                Element item = (Element) itemList.item(i);
-                String title = getElementTextByTagName(item, "title");
-                String description = getElementTextByTagName(item, "description");
-                String pubDate = getElementTextByTagName(item, "pubDate");
-                String author = getElementTextByTagName(item, "author");
-
-
-                htmlWriter.write("<h2>" + title + "</h2>");
-                htmlWriter.write("<p><strong>Description:</strong> " + description + "</p>");
-                htmlWriter.write("<p><strong>Publication Date:</strong> " + pubDate + "</p>");
-                htmlWriter.write("<p><strong>Author:</strong> " + author + "</p>");
-                htmlWriter.write("<hr>");
-            }
-
-        
-            htmlWriter.write("</body></html>");
-            htmlWriter.close();
-
-            System.out.println("Парсинг завершон. Результаты сохранены");
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
+        for (int i = 0; i < nodes.getLength(); i++) {
+            System.out.println(nodes.item(i).getNodeValue());
         }
-    }
-
-    private static String getElementTextByTagName(Element element, String tagName) {
-        NodeList nodeList = element.getElementsByTagName(tagName);
-        if (nodeList.getLength() > 0) {
-            Node node = nodeList.item(0);
-            return node.getTextContent();
-        }
-        return "";
     }
 }
