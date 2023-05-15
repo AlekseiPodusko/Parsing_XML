@@ -23,7 +23,7 @@ public class PizzaXMLParser {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true); 
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse("pizza.xml");
+        Document doc = builder.parse("news.xml");
         XPathFactory xpathfactory = XPathFactory.newInstance();
         XPath xpath = xpathfactory.newXPath();
         XPathExpression expr = xpath.compile("//news/title/text()");
