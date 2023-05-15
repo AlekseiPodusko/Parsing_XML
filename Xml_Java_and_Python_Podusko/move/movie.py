@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import streamlit as st
 
 tree = ET.parse('movie.xml')
 root = tree.getroot()
